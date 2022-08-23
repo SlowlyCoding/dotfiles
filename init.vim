@@ -1,14 +1,3 @@
-
-"  sudo apt insatll ccls
-
-" automatically install plug.vim if not there yet
-" and install plugins
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 call plug#begin('~/.vim/plugged')
 " Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -64,7 +53,6 @@ nnoremap H <C-W><C-H>
 " Telescope mappings
 let mapleader =  " "
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>bff <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>gs <cmd>Telescope git_status<cr>
 nnoremap <leader>gc <cmd>Telescope git_commits<cr>
 " LSP mappings
@@ -77,19 +65,22 @@ lua << EOF
 require('telescope').setup{}
 require('telescope').load_extension('fzf')
 require('lspconfig').ccls.setup{
-vim.diagnostic.config({
-  signs = true,
-  virtual_text = true
-})
+  vim.diagnostic.config({
+        signs = false; -- get rid of the annoying signs on the left
+  }),
+  vim.diagnostic.disable() -- disable diagnostics by default
 }
-vim.g.diagnostics_active = true
+-- function to toggle diagnostics using tE (toggle errors)
+vim.g.diagnostics_active = false
 function _G.toggle_diagnostics()
   if vim.g.diagnostics_active then
     vim.g.diagnostics_active = false
     vim.diagnostic.disable()
+    print("diagnostic disabled")
   else
     vim.g.diagnostics_active = true
     vim.diagnostic.enable()
+    print("diagnostic enabled")
   end
 end
 vim.api.nvim_set_keymap('n', 'tE', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
