@@ -73,24 +73,24 @@ nnoremap <silent> gT <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gE <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <silent> I <cmd>lua vim.lsp.buf.hover()<CR>
 
-lua << EOF                                                                                                         │
-require('telescope').setup{}                                                                                       │
-require('telescope').load_extension('fzf')                                                                         │
-require('lspconfig').ccls.setup{                                                                                   │
-vim.diagnostic.config({                                                                                            │
-  signs = true,                                                                                                    │
-  virtual_text = true                                                                                              │
-})                                                                                                                 │
-}                                                                                                                  │
-vim.g.diagnostics_active = true                                                                                    │
-function _G.toggle_diagnostics()                                                                                   │
-  if vim.g.diagnostics_active then                                                                                 │
-    vim.g.diagnostics_active = false                                                                               │
-    vim.diagnostic.disable()                                                                                       │
-  else                                                                                                             │
-    vim.g.diagnostics_active = true                                                                                │
-    vim.diagnostic.enable()                                                                                        │
-  end                                                                                                              │
-end                                                                                                                │
-vim.api.nvim_set_keymap('n', 'tE', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})       │
-EOF  
+lua << EOF
+require('telescope').setup{}
+require('telescope').load_extension('fzf')
+require('lspconfig').ccls.setup{
+vim.diagnostic.config({
+  signs = true,
+  virtual_text = true
+})
+}
+vim.g.diagnostics_active = true
+function _G.toggle_diagnostics()
+  if vim.g.diagnostics_active then
+    vim.g.diagnostics_active = false
+    vim.diagnostic.disable()
+  else
+    vim.g.diagnostics_active = true
+    vim.diagnostic.enable()
+  end
+end
+vim.api.nvim_set_keymap('n', 'tE', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
+EOF
