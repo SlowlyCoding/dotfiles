@@ -6,22 +6,25 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } " better and faster fuzzy search
 " LSP
 Plug 'neovim/nvim-lspconfig'
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " other useful plugins
 Plug 'tpope/vim-surround'
-Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 " colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'Mangeshrex/uwu.vim'
+Plug 'RRethy/nvim-base16'
+Plug 'logico/typewriter-vim'
+Plug 'savq/melange'
 call plug#end()
 
-"colorscheme gruvbox
-colorscheme uwu
+set termguicolors
+colorscheme typewriter-night
+"colorscheme base16-gruvbox-material-dark-hard
 
 " lightline config
 " further colorschemes: https://github.com/itchyny/lightline.vim/blob/master/colorscheme.md
 let g:lightline = {
-      \ 'colorscheme': 'ayu_dark',
+      \ 'colorscheme': 'wombat',
       \ }
 
 set tabstop=2 softtabstop=2
@@ -50,6 +53,22 @@ nnoremap J <C-W><C-K>
 nnoremap K <C-W><C-J>
 nnoremap L <C-W><C-L>
 nnoremap H <C-W><C-H>
+" makes brackets more accessible (swiss keyboard)
+inoremap ç !
+inoremap è [
+inoremap ! ]
+inoremap à {
+inoremap £ }
+vnoremap ç !
+vnoremap è [
+vnoremap ! ]
+vnoremap à {
+vnoremap £ }
+cnoremap ç !
+cnoremap è [
+cnoremap ! ]
+cnoremap à {
+cnoremap £ }
 " Telescope mappings
 let mapleader =  " "
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -64,9 +83,9 @@ nnoremap <silent> I <cmd>lua vim.lsp.buf.hover()<CR>
 lua << EOF
 require('telescope').setup{}
 require('telescope').load_extension('fzf')
-require('lspconfig').ccls.setup{
+require('lspconfig').clangd.setup{
   vim.diagnostic.config({
-        signs = false; -- get rid of the annoying signs on the left
+    signs = false; -- get rid of the annoying signs on the left
   }),
   vim.diagnostic.disable() -- disable diagnostics by default
 }
@@ -84,4 +103,21 @@ function _G.toggle_diagnostics()
   end
 end
 vim.api.nvim_set_keymap('n', 'tE', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
+-- treesitter config
+require('nvim-treesitter.configs').setup {
+  -- A list of parser names
+  ensure_installed = { "cpp", "cuda", "glsl", "make", "python", "html", "css", "json", "vim", },
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
 EOF
