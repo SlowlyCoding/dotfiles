@@ -1,16 +1,23 @@
 # My Dotfiles
 
-[Alacritty](https://alacritty.org) terminal config - alacritty.yml
+###  [Alacritty](https://alacritty.org) terminal config
 
-Bash shell config - .bashrc
+    alacritty.yml
 
-[Neovim](https://neovim.io) editor config - nvim/
+### Bash shell config
 
-    also install [packer.nvim](https://github.com/wbthomason/packer.nvim)
+    .bashrc
 
-[tmux](https://github.com/tmux/tmux) terminal multiplexer config - .tmux.conf
+### [Neovim](https://neovim.io) editor config
 
-    also install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+    nvim/
 
-    and [Tmux Resurrect](https://github.com/tmux-plugins/tmux-resurrect)
+used with [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
+### [Tmux](https://github.com/tmux/tmux) terminal multiplexer config
+
+    .tmux.conf
+
+used with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+
+and [Tmux Resurrect](https://github.com/tmux-plugins/tmux-resurrect)
