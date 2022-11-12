@@ -14,7 +14,7 @@ font:
   bold:
     family: Cascadia Mono PL
     style: SemiBold
-  size: 12.5 # 12.5 best
+  size: 12.5
 
 # Colors (Ayu Dark)
 colors:
