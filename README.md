@@ -1,8 +1,8 @@
 # My Dotfiles
 
 <p align="center">
-<img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/nvim.JPG">
-<img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/tmux.JPG">
+<img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/nvim.PNG">
+<img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/tmux.PNG">
 
 ###  [Alacritty](https://alacritty.org) terminal config
 
