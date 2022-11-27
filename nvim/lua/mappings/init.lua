@@ -35,6 +35,7 @@ vim.api.nvim_set_keymap('c', '£', '}', opts)
 
 -- Telescope mappings
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+vim.api.nvim_set_keymap('n', '<leader>lg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 vim.api.nvim_set_keymap('n', '<leader>gs', "<cmd>lua require('telescope.builtin').git_status()<cr>", opts)
 vim.api.nvim_set_keymap('n', '<leader>gc', "<cmd>lua require('telescope.builtin').git_commits()<cr>", opts)
 

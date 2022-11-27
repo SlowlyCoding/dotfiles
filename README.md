@@ -20,6 +20,8 @@ I use a 1440p monitor, so the window dimensions and the text size are set accord
 
 used with [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
+and [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+
 ### [Tmux](https://github.com/tmux/tmux) terminal multiplexer config
 
 `.tmux.conf`
