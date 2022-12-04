@@ -8,7 +8,7 @@
 
 `alacritty.yml`
 
-I use a 1440p monitor, so the window dimensions and the text size are set accordingly, might need to be adjusted for 1080p
+I use a 1440p monitor, so the window dimensions and the text size are set accordingly, might need to be adjusted for different resolutions
 
 ### Bash shell config
 
@@ -18,9 +18,9 @@ I use a 1440p monitor, so the window dimensions and the text size are set accord
 
 `nvim/`
 
-used with [packer.nvim](https://github.com/wbthomason/packer.nvim)
-
-and [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+used with [packer.nvim](https://github.com/wbthomason/packer.nvim), [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+  
+and make sure you have cmake installed
 
 ### [Tmux](https://github.com/tmux/tmux) terminal multiplexer config
 
