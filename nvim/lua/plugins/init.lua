@@ -3,13 +3,15 @@ return require('packer').startup(function(use)
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { {'nvim-lua/plenary.nvim'} },
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- Treesitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- LSP
   use 'neovim/nvim-lspconfig'
+  -- grammar check (ltex-ls)
+  use 'brymer-meneses/grammar-guard.nvim'
   -- statusline
   use 'nvim-lualine/lualine.nvim'
   -- Commenting

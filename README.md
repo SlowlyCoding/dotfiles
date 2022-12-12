@@ -18,7 +18,7 @@ I use a 1440p monitor, so the window dimensions and the text size are set accord
 
 `nvim/`
 
-used with [packer.nvim](https://github.com/wbthomason/packer.nvim), [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+used with [packer.nvim](https://github.com/wbthomason/packer.nvim), [ripgrep](https://github.com/BurntSushi/ripgrep#installation), [ltex-ls](https://github.com/valentjn/ltex/blob/develop/pages/ltex-ls/installation.md)
   
 and make sure you have cmake installed
 

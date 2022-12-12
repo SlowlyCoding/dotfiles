@@ -5,8 +5,8 @@ vim.g.gruvbox_contrast_dark = "hard"
 vim.cmd("colorscheme gruvbox")
 
 -- tab settings
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 -- vim.cmd("autocmd FileType python setlocal tabstop=2")
@@ -17,8 +17,8 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 20
 vim.opt.showmode = false
-vim.opt.relativenumber = true
-vim.opt.nu = true
+vim.opt.relativenumber = false
+vim.opt.nu = false
 vim.opt.hls = false
 
 -- lualine settings
@@ -47,6 +47,10 @@ require('lspconfig')['rust_analyzer'].setup{
   vim.diagnostic.config({signs = false;}),
   vim.diagnostic.disable(),
 }
+require("grammar-guard").init()
+require("lspconfig")['grammar_guard'].setup({
+  cmd = { '/usr/bin/ltex-ls' }, -- add this if you install ltex-ls yourself
+})
 
 -- function to toggle diagnostics, mapping in mappings/init.lua
 vim.g.diagnostics_active = false
