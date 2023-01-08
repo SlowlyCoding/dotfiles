@@ -1,31 +1,22 @@
-# My Dotfiles
-
 <p align="center">
 <img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/nvim.PNG">
 <img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/tmux.PNG">
 
-###  [Alacritty](https://alacritty.org) terminal config
+# Configs
 
-`alacritty.yml`
+- .bashrc
+- .tmux.conf
+- alacritty.yml
+- nvim/
 
-I use a 1440p monitor, so the window dimensions and the text size are set accordingly, might need to be adjusted for different resolutions
+# Neovim
 
-### Bash shell config
+make sure you have [packer.nvim](https://github.com/wbthomason/packer.nvim) and `make` installed 
 
-`.bashrc`
+to use live grep with Telescope install [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 
-### [Neovim](https://neovim.io) editor config
+# Tmux
 
-`nvim/`
+install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
-used with [packer.nvim](https://github.com/wbthomason/packer.nvim), [ripgrep](https://github.com/BurntSushi/ripgrep#installation), [ltex-ls](https://github.com/valentjn/ltex/blob/develop/pages/ltex-ls/installation.md)
-  
-and make sure you have cmake installed
-
-### [Tmux](https://github.com/tmux/tmux) terminal multiplexer config
-
-`.tmux.conf`
-
-used with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
-
-and [Tmux Resurrect](https://github.com/tmux-plugins/tmux-resurrect)
+and press `Control + b + I` inside tmux to install all plugins

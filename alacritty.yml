@@ -1,11 +1,12 @@
 window:
   dimensions:
-    columns: 220
-    lines: 58
+    columns: 170
+    lines: 45
   padding:
     x: 0
     y: 0
-  decorations: none # no title bar for a cleaner look, I just type 'exit' to close alacritty
+  decorations: full
+  opacity: 0.9
 
 font:
   normal:
@@ -14,7 +15,7 @@ font:
   bold:
     family: Cascadia Mono PL
     style: SemiBold
-  size: 12.5
+  size: 10.5
 
 # Colors (Ayu Dark)
 colors:
