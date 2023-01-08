@@ -10,8 +10,6 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- LSP
   use 'neovim/nvim-lspconfig'
-  -- grammar check (ltex-ls)
-  use 'brymer-meneses/grammar-guard.nvim'
   -- statusline
   use 'nvim-lualine/lualine.nvim'
   -- Commenting

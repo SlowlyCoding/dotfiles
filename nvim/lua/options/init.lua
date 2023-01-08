@@ -5,33 +5,39 @@ vim.g.gruvbox_contrast_dark = "hard"
 vim.cmd("colorscheme gruvbox")
 
 -- tab settings
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
--- vim.cmd("autocmd FileType python setlocal tabstop=2")
--- vim.cmd("autocmd FileType python setlocal shiftwidth=2")
 
 -- other vim settings
 vim.opt.wrap = false
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 20
 vim.opt.showmode = false
-vim.opt.relativenumber = false
-vim.opt.nu = false
+vim.opt.showtabline = 0
+vim.opt.relativenumber = true
+vim.opt.nu = true
 vim.opt.hls = false
+vim.opt.mouse = ""
 
 -- lualine settings
 require('lualine').setup{
   options = { 
     theme = 'auto',
     section_separators = '', 
-    component_separators = '|'},
+    component_separators = '|',
+    refresh = { statusline = 50 }
+  },
   sections = { 
-    lualine_b = {'diagnostics'},
-    lualine_x = {'encoding'},
+    lualine_b = { 
+      {'tabs', mode = 1} 
+    },
+    lualine_c = {'diagnostics'},
+    lualine_x = {'diff'},
     lualine_y = {'progress'},
-    lualine_z = {'g:diagnostics_active'} }
+    lualine_z = {'g:diagnostics_active'} 
+  }
 }
 
 -- telescope setup
@@ -47,10 +53,6 @@ require('lspconfig')['rust_analyzer'].setup{
   vim.diagnostic.config({signs = false;}),
   vim.diagnostic.disable(),
 }
-require("grammar-guard").init()
-require("lspconfig")['grammar_guard'].setup({
-  cmd = { '/usr/bin/ltex-ls' }, -- add this if you install ltex-ls yourself
-})
 
 -- function to toggle diagnostics, mapping in mappings/init.lua
 vim.g.diagnostics_active = false
@@ -67,7 +69,7 @@ end
 -- treesitter config
 require('nvim-treesitter.configs').setup {
   -- A list of parser names
-  ensure_installed = { "cpp", "cuda", "glsl", "make", "python", "html", "css", "json", "vim", "lua", "rust", },
+  ensure_installed = { "c", "cpp", "cuda", "glsl", "make", "python", "html", "css", "json", "vim", "lua", "rust", },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
   -- Automatically install missing parsers when entering buffer
