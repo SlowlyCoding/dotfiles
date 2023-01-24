@@ -1,5 +1,6 @@
 -- colorscheme
 vim.opt.termguicolors = true
+vim.opt.background = "dark"
 vim.g.catppuccin_flavour = "mocha"
 vim.g.gruvbox_contrast_dark = "hard"
 vim.cmd("colorscheme gruvbox")
