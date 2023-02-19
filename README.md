@@ -2,20 +2,13 @@
 <img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/nvim.PNG">
 <img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/tmux.PNG">
 
-# Configs
-
-- .bashrc
-- .tmux.conf
-- alacritty.yml
-- nvim/
-
-# Neovim
+## Neovim
 
 make sure you have [packer.nvim](https://github.com/wbthomason/packer.nvim) and `make` installed 
 
 to use live grep with Telescope install [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 
-# Tmux
+## Tmux
 
 install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
