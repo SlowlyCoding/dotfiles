@@ -2,6 +2,8 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = ' '
 vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', opts)
 
+
+
 -- switching keys for my ease of use
 vim.api.nvim_set_keymap('n', 'j', 'k', opts)
 vim.api.nvim_set_keymap('n', 'k', 'j', opts)
@@ -51,3 +53,5 @@ vim.keymap.set('n', 'I', vim.lsp.buf.hover) -- [I]nformation
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
 -- Custom LSP command to toggle diagnostics
 vim.api.nvim_set_keymap('n', 'tE', ':call v:lua.toggle_diagnostics()<CR>', opts) -- [t]oggle [E]rrors
+-- Navbuddy
+vim.api.nvim_set_keymap('n', 'N', ':Navbuddy<CR>', opts);
