@@ -1,5 +1,6 @@
 <p align="center">
-<img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/void.png">
+<img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/1.png">
+<img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/2.png">
 
 ## Neovim
 
