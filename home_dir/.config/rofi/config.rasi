@@ -1,0 +1,7 @@
+configuration {
+ modi: "ssh,run,combi";
+ font: "hack 12";
+ combi-modi: "run,ssh";
+ display-window: "DP-0";
+}
+@theme "gruvbox"
