@@ -10,12 +10,12 @@ window:
 
 font:
   normal:
-    family: Cascadia Mono PL
+    family: CaskaydiaCove NF
     style: Regular
   bold:
-    family: Cascadia Mono PL
+    family: CaskaydiaCove NF
     style: SemiBold
-  size: 10.5
+  size: 12 # 10.5
 
 # Colors (Ayu Dark)
 colors:
