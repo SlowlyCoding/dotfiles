@@ -95,6 +95,7 @@ for _, server in ipairs(servers) do
             vim.diagnostic.config({signs = false;}) -- get rid of the annoying signs on the left
             vim.diagnostic.disable() -- disable diagnostics by default
             navbuddy.attach(client, bufnr)
+            client.server_capabilities.semanticTokensProvider = nil -- disable highlighting from the LSP
         end,
     })
 end
