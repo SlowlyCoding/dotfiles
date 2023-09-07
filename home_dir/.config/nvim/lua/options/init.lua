@@ -1,12 +1,14 @@
+--local packer = require('packer')
+--packer.util = require('packer.util')
+--packer.init({max_jobs=1})
 ------------------------------
 -- colors
 ------------------------------
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.g.catppuccin_flavour = "mocha"
 vim.g.gruvbox_contrast_dark = "hard"
--- vim.cmd("colorscheme handmade-hero")
 vim.cmd("colorscheme gruvbox")
+-- for gruvbox:
 vim.api.nvim_set_hl(0, "Visual", { bg='#514f4d' }) -- less bright visual highlighting
 vim.api.nvim_set_hl(0, "Pmenu", { bg='#1d2021' }) -- Navbuddy bg color
 
@@ -85,6 +87,7 @@ local lsp = require("lspconfig")
 local servers = {
     "clangd",
     "rust_analyzer",
+    "ltex",
 }
 for _, server in ipairs(servers) do
     lsp[server].setup({
@@ -115,7 +118,7 @@ end
 ------------------------------
 require('nvim-treesitter.configs').setup {
   -- A list of parser names
-  ensure_installed = { "c", "cpp", "cuda", "glsl", "make", "python", "html", "css", "json", "vim", "lua", "rust", },
+  ensure_installed = { "c", "cpp", "cuda", "glsl", "make", "python", "html", "css", "json", "vim", "lua", "rust", "latex", },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
   -- Automatically install missing parsers when entering buffer
@@ -124,3 +127,9 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   },
 }
+
+------------------------------
+-- vimtex stuff
+------------------------------
+vim.opt.filetype.plugin = "on"
+vim.g.vimtex_view_method = "zathura"
