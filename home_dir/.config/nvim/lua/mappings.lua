@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', opts)
+vim.g.mapleader = ' '
 
 -- switching keys for my ease of use
 vim.api.nvim_set_keymap('n', 'j', 'k', opts)

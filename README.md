@@ -1,12 +1,15 @@
 <p align="center">
 <img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/1.png">
-<img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/2.png">
 
 ## Neovim
 
-make sure you have [packer.nvim](https://github.com/wbthomason/packer.nvim) and `make` installed 
+I use [lazy](https://github.com/folke/lazy.nvim) as a plugin manager
 
-to use live grep with Telescope install [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+Requirements
+
+- make sure you have `make` installed 
+
+- to use live grep with Telescope install [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 
 ## Tmux
 
