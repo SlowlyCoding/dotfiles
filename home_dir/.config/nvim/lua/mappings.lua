@@ -55,6 +55,9 @@ vim.api.nvim_set_keymap('n', 'tE', ':call v:lua.toggle_diagnostics()<CR>', opts)
 -- Navbuddy
 vim.api.nvim_set_keymap('n', 'N', ':Navbuddy<CR>', opts);
 
+-- Oil
+vim.api.nvim_set_keymap('n', '<leader>o', ':Oil --float<CR>', opts);
+
 -- Vimtex
 vim.api.nvim_set_keymap('n', '<C-c>', ':VimtexCompile<CR>', opts);
 vim.api.nvim_set_keymap('n', '<C-s>', ':VimtexStop<CR>', opts);

@@ -56,6 +56,16 @@ require("lazy").setup({
         config = function() require('plugin_configs.telescope') end,
     },
 
+    -------------------------
+    -- Oil (filetree as a buffer)
+    -------------------------
+    {
+        'stevearc/oil.nvim',
+        cmd = 'Oil',
+        config = function() require('plugin_configs.oil') end,
+        -- dependencies = { "nvim-tree/nvim-web-devicons"  },
+    },
+
     --------------------
     -- LSP
     --------------------
@@ -88,6 +98,7 @@ require("lazy").setup({
     {
         'altermo/ultimate-autopair.nvim',
         event = {'InsertEnter','CmdlineEnter'},
+        enabled = true,
         branch='v0.6',
         dependencies = {
             "kylechui/nvim-surround",
@@ -98,6 +109,11 @@ require("lazy").setup({
     },
 
     --------------------
+    -- Dressing
+    --------------------
+    'stevearc/dressing.nvim',
+
+    --------------------
     -- LaTeX support
     --------------------
     {
@@ -105,5 +121,4 @@ require("lazy").setup({
         ft = "tex",
         config = function() require('plugin_configs.vimtex') end,
     },
-
 })
