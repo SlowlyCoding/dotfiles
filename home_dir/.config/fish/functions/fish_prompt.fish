@@ -1,6 +1,6 @@
 function fish_prompt
     set_color 91B362 # green
-    echo -n $USER@$hostname
+    echo -n $USER@$(prompt_hostname)
 
     set_color normal
     echo -n :
