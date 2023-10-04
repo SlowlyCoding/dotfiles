@@ -4,4 +4,5 @@ if status is-interactive
 
   alias cat "bat"
   alias ls "lsd"
+  alias tree "lsd --tree"
 end
