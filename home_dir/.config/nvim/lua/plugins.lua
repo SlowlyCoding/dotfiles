@@ -23,6 +23,12 @@ require("lazy").setup({
     {'TheNiteCoder/mountaineer.vim', lazy = true },
     {'logico/typewriter-vim', lazy = true },
     {'nikolvs/vim-sunbather', lazy = true },
+    {'projekt0n/github-nvim-theme', lazy = true },
+
+    --------------------
+    -- Icons
+    --------------------
+    {'nvim-tree/nvim-web-devicons'},
 
     --------------------
     -- tree-sitter
@@ -67,11 +73,19 @@ require("lazy").setup({
     },
 
     --------------------
+    -- Scrollbar
+    --------------------
+    {
+        'petertriho/nvim-scrollbar',
+        config = function() require('scrollbar').setup({}) end,
+    },
+
+    --------------------
     -- LSP
     --------------------
     {
         'neovim/nvim-lspconfig', 
-        ft = {"c", "cpp", "py", "tex"}, -- only start on these filestypes
+        ft = {"c", "cpp", "python", "tex", "rust", "lua"}, -- only start on these filestypes
         config = function() require('plugin_configs.lspconfig') end,
         dependencies = {
             -------------
@@ -91,6 +105,11 @@ require("lazy").setup({
     -- toggle comments 
     --------------------
     'tpope/vim-commentary',
+    
+    --------------------
+    -- Dressing
+    --------------------
+    'stevearc/dressing.nvim',
 
     --------------------
     -- Autopairs
@@ -109,16 +128,27 @@ require("lazy").setup({
     },
 
     --------------------
-    -- Dressing
-    --------------------
-    'stevearc/dressing.nvim',
-
-    --------------------
-    -- LaTeX support
+    -- Trouble
     --------------------
     {
-        'lervag/vimtex', 
-        ft = "tex",
-        config = function() require('plugin_configs.vimtex') end,
+        'folke/trouble.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {
+            action_keys = {
+                hover = "I",
+                next = 'k',
+                previous = 'j',
+            }
+        },
     },
+
+    --------------------
+    -- Copilot
+    --------------------
+    -- {
+    --     "zbirenbaum/copilot.lua",
+    --     cmd = "Copilot",
+    --     event = "InsertEnter",
+    --     config = function() require('plugin_configs.copilot') end,
+    -- },
 })

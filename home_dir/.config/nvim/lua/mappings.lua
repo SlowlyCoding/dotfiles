@@ -22,21 +22,21 @@ vim.api.nvim_set_keymap('n', '<C-Left>', ':tabprevious<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-Right>', ':tabnext<CR>', opts)
 
 -- makes brackets more accessible (swiss keyboard)
-vim.api.nvim_set_keymap('i', 'ç', '!', opts)
-vim.api.nvim_set_keymap('i', 'è', '[', opts)
-vim.api.nvim_set_keymap('i', '!', ']', opts)
-vim.api.nvim_set_keymap('i', 'à', '{', opts)
-vim.api.nvim_set_keymap('i', '£', '}', opts)
-vim.api.nvim_set_keymap('v', 'ç', '!', opts)
-vim.api.nvim_set_keymap('v', 'è', '[', opts)
-vim.api.nvim_set_keymap('v', '!', ']', opts)
-vim.api.nvim_set_keymap('v', 'à', '{', opts)
-vim.api.nvim_set_keymap('v', '£', '}', opts)
-vim.api.nvim_set_keymap('c', 'ç', '!', opts)
-vim.api.nvim_set_keymap('c', 'è', '[', opts)
-vim.api.nvim_set_keymap('c', '!', ']', opts)
-vim.api.nvim_set_keymap('c', 'à', '{', opts)
-vim.api.nvim_set_keymap('c', '£', '}', opts)
+-- vim.api.nvim_set_keymap('i', 'ç', '!', opts)
+-- vim.api.nvim_set_keymap('i', 'è', '[', opts)
+-- vim.api.nvim_set_keymap('i', '!', ']', opts)
+-- vim.api.nvim_set_keymap('i', 'à', '{', opts)
+-- vim.api.nvim_set_keymap('i', '£', '}', opts)
+-- vim.api.nvim_set_keymap('v', 'ç', '!', opts)
+-- vim.api.nvim_set_keymap('v', 'è', '[', opts)
+-- vim.api.nvim_set_keymap('v', '!', ']', opts)
+-- vim.api.nvim_set_keymap('v', 'à', '{', opts)
+-- vim.api.nvim_set_keymap('v', '£', '}', opts)
+-- vim.api.nvim_set_keymap('c', 'ç', '!', opts)
+-- vim.api.nvim_set_keymap('c', 'è', '[', opts)
+-- vim.api.nvim_set_keymap('c', '!', ']', opts)
+-- vim.api.nvim_set_keymap('c', 'à', '{', opts)
+-- vim.api.nvim_set_keymap('c', '£', '}', opts)
 
 -- Telescope mappings
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
@@ -54,6 +54,9 @@ vim.api.nvim_set_keymap('n', 'tE', ':call v:lua.toggle_diagnostics()<CR>', opts)
 
 -- Navbuddy
 vim.api.nvim_set_keymap('n', 'N', ':Navbuddy<CR>', opts);
+
+-- Trouble
+vim.keymap.set('n', '<leader>t', function() require("trouble").toggle() end);
 
 -- Oil
 vim.api.nvim_set_keymap('n', '<leader>o', ':Oil --float<CR>', opts);

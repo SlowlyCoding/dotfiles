@@ -5,6 +5,7 @@ local servers = {
     "rust_analyzer",
     "pyright",
     "ltex",
+    "lua_ls",
 }
 
 for _, server in ipairs(servers) do

@@ -8,6 +8,7 @@ vim.g.gruvbox_contrast_dark = "hard"
 vim.cmd("colorscheme gruvbox")
 vim.api.nvim_set_hl(0, "Visual", { bg='#514f4d' }) -- less bright visual highlighting
 vim.api.nvim_set_hl(0, "Pmenu", { bg='#161518' }) -- Navbuddy bg color
+vim.o.guifont = "CaskaydiaCove NF:h14"
 
 ------------------------------
 -- tab settings
