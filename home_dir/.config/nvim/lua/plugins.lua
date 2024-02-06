@@ -16,14 +16,17 @@ require("lazy").setup({
     -------------------------
     -- Colorschemes
     -------------------------
-    {'morhetz/gruvbox', lazy = false}, -- main
-    {'catppuccin/nvim', name = 'catppuccin', lazy = true },
+    {'morhetz/gruvbox', lazy = false },
+    {'catppuccin/nvim', name = 'catppuccin', lazy = false },
+    {'HoNamDuong/hybrid.nvim', lazy = false },
+    {'Mofiqul/vscode.nvim', lazy = false },
+    {'projekt0n/github-nvim-theme', lazy = false },
+    {'lurst/austere.vim', lazy = false },
     {'rebelot/kanagawa.nvim', lazy = true },
-    {'CreaturePhil/vim-handmade-hero', lazy = true },
-    {'TheNiteCoder/mountaineer.vim', lazy = true },
-    {'logico/typewriter-vim', lazy = true },
     {'nikolvs/vim-sunbather', lazy = true },
-    {'projekt0n/github-nvim-theme', lazy = true },
+
+    -- Transparency (:TransaprentEnable)
+    'xiyaowong/transparent.nvim',
 
     --------------------
     -- Icons
@@ -34,18 +37,19 @@ require("lazy").setup({
     -- tree-sitter
     --------------------
     {
-        'nvim-treesitter/nvim-treesitter', 
+        'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         lazy = false,
+        version = '0.9.2',
         config = function() require('plugin_configs.treesitter') end,
     },
 
     -------------------------
     -- Statusline (lualine)
     -------------------------
-    { 
-        'nvim-lualine/lualine.nvim', 
-        lazy = false, 
+    {
+        'nvim-lualine/lualine.nvim',
+        lazy = false,
         config = function() require('plugin_configs.lualine') end,
     },
 
@@ -53,9 +57,10 @@ require("lazy").setup({
     -- Telescope
     --------------------
     {
-        'nvim-telescope/telescope.nvim', 
+        'nvim-telescope/telescope.nvim',
         dependencies = {
             'nvim-lua/plenary.nvim',
+            'ahmedkhalf/project.nvim',
             {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
         },
         cmd = "Telescope",
@@ -69,7 +74,6 @@ require("lazy").setup({
         'stevearc/oil.nvim',
         cmd = 'Oil',
         config = function() require('plugin_configs.oil') end,
-        -- dependencies = { "nvim-tree/nvim-web-devicons"  },
     },
 
     --------------------
@@ -81,17 +85,25 @@ require("lazy").setup({
     },
 
     --------------------
+    -- GitSigns
+    --------------------
+    {
+        'lewis6991/gitsigns.nvim',
+        config = function() require('gitsigns').setup() end,
+    },
+
+    --------------------
     -- LSP
     --------------------
     {
-        'neovim/nvim-lspconfig', 
+        'neovim/nvim-lspconfig',
         ft = {"c", "cpp", "python", "tex", "rust", "lua"}, -- only start on these filestypes
         config = function() require('plugin_configs.lspconfig') end,
         dependencies = {
             -------------
             -- NavBuddy
             -------------
-            'SmiteshP/nvim-navbuddy', 
+            'SmiteshP/nvim-navbuddy',
             dependencies = {
                 'neovim/nvim-lspconfig',
                 'SmiteshP/nvim-navic',
@@ -105,7 +117,7 @@ require("lazy").setup({
     -- toggle comments 
     --------------------
     'tpope/vim-commentary',
-    
+
     --------------------
     -- Dressing
     --------------------
@@ -124,7 +136,7 @@ require("lazy").setup({
             version = "*", -- Use for stability; omit to use `main` branch for the latest features
             event = "VeryLazy",
         },
-        config = function() require('ultimate-autopair').setup() end, 
+        config = function() require('ultimate-autopair').setup() end,
     },
 
     --------------------
@@ -132,6 +144,7 @@ require("lazy").setup({
     --------------------
     {
         'folke/trouble.nvim',
+        cmd = "Trouble",
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {
             action_keys = {
@@ -151,4 +164,9 @@ require("lazy").setup({
     --     event = "InsertEnter",
     --     config = function() require('plugin_configs.copilot') end,
     -- },
+    --
+    {
+        'eandrju/cellular-automaton.nvim',
+        event = "VeryLazy",
+    },
 })

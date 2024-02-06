@@ -1,6 +1,3 @@
-<p align="center">
-<img src="https://github.com/SlowlyCoding/dotfiles/blob/master/screenshots/1.png">
-
 ## Neovim
 
 I use [lazy](https://github.com/folke/lazy.nvim) as a plugin manager
