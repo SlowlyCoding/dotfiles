@@ -4,7 +4,6 @@ local servers = {
     "clangd",
     "rust_analyzer",
     "pyright",
-    "ltex",
     "lua_ls",
 }
 

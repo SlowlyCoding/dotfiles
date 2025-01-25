@@ -46,17 +46,21 @@ vim.api.nvim_set_keymap('n', '<leader>lg', "<cmd>lua require('telescope.builtin'
 -- LSP mappings
 vim.keymap.set('n', 'gE', vim.diagnostic.goto_next) -- [g]o to [E]rror
 vim.keymap.set('n', 'gD', vim.lsp.buf.definition) -- [g]o to [D]efintion
+vim.keymap.set('n', 'gd', vim.lsp.buf.declaration) -- [g]o to [D]efintion
+vim.keymap.set('n', 'gr', vim.lsp.buf.references) -- [g]o to [D]efintion
 vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition) -- [g]o to [T]ypedefintion
 vim.keymap.set('n', 'I', vim.lsp.buf.hover) -- [I]nformation
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
--- Custom LSP command to toggle diagnostics
+-- keymaps calling custom functions
 vim.api.nvim_set_keymap('n', 'tE', ':call v:lua.toggle_diagnostics()<CR>', opts) -- [t]oggle [E]rrors
+vim.api.nvim_set_keymap('n', '<leader>cc', ':call v:lua.cycle_colors()<CR>', opts) -- [c]ycle [c]olors
 
 -- Navbuddy
 vim.api.nvim_set_keymap('n', 'N', ':Navbuddy<CR>', opts);
 
 -- Trouble
-vim.keymap.set('n', '<leader>t', function() require("trouble").toggle() end);
+-- vim.keymap.set('n', '<leader>t', function() require("trouble").toggle() end);
+vim.keymap.set('n', '<leader>t', "<cmd>Trouble diagnostics toggle filter.buf=0<cr>");
 
 -- Oil
 vim.api.nvim_set_keymap('n', '<leader>o', ':Oil --float<CR>', opts);

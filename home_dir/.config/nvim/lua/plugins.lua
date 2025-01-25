@@ -17,13 +17,15 @@ require("lazy").setup({
     -- Colorschemes
     -------------------------
     {'morhetz/gruvbox', lazy = false },
-    {'catppuccin/nvim', name = 'catppuccin', lazy = false },
+    {'lurst/austere.vim', lazy = false }, -- minimal b&w
+    { "wtfox/jellybeans.nvim", lazy = false },
     {'HoNamDuong/hybrid.nvim', lazy = false },
-    {'Mofiqul/vscode.nvim', lazy = false },
     {'projekt0n/github-nvim-theme', lazy = false },
-    {'lurst/austere.vim', lazy = false },
+    {'catppuccin/nvim', name = 'catppuccin', lazy = false },
+    {'Mofiqul/vscode.nvim', lazy = false },
     {'rebelot/kanagawa.nvim', lazy = true },
     {'nikolvs/vim-sunbather', lazy = true },
+    { "rose-pine/neovim", name = "rose-pine", lazy = true },
 
     -- Transparency (:TransaprentEnable)
     'xiyaowong/transparent.nvim',
@@ -97,20 +99,20 @@ require("lazy").setup({
     --------------------
     {
         'neovim/nvim-lspconfig',
-        ft = {"c", "cpp", "python", "tex", "rust", "lua"}, -- only start on these filestypes
+        ft = {"c", "cpp", "python", "rust", "lua"}, -- only start on these filestypes
         config = function() require('plugin_configs.lspconfig') end,
+    },
+    --------------------
+    -- NavBuddy
+    --------------------
+    {
+        'SmiteshP/nvim-navbuddy',
         dependencies = {
-            -------------
-            -- NavBuddy
-            -------------
-            'SmiteshP/nvim-navbuddy',
-            dependencies = {
-                'neovim/nvim-lspconfig',
-                'SmiteshP/nvim-navic',
-                'MunifTanjim/nui.nvim',
-            },
-            config = function() require('plugin_configs.navbuddy') end,
-        };
+            'neovim/nvim-lspconfig',
+            'SmiteshP/nvim-navic',
+            'MunifTanjim/nui.nvim',
+        },
+        config = function() require('plugin_configs.navbuddy') end,
     },
 
     --------------------
@@ -156,15 +158,8 @@ require("lazy").setup({
     },
 
     --------------------
-    -- Copilot
+    -- Fun Stuff
     --------------------
-    -- {
-    --     "zbirenbaum/copilot.lua",
-    --     cmd = "Copilot",
-    --     event = "InsertEnter",
-    --     config = function() require('plugin_configs.copilot') end,
-    -- },
-    --
     {
         'eandrju/cellular-automaton.nvim',
         event = "VeryLazy",
