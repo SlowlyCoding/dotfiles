@@ -42,7 +42,7 @@ require("lazy").setup({
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         lazy = false,
-        version = '0.9.2',
+        -- version = '0.9.2',
         config = function() require('plugin_configs.treesitter') end,
     },
 
@@ -95,20 +95,12 @@ require("lazy").setup({
     },
 
     --------------------
-    -- LSP
-    --------------------
-    {
-        'neovim/nvim-lspconfig',
-        ft = {"c", "cpp", "python", "rust", "lua"}, -- only start on these filestypes
-        config = function() require('plugin_configs.lspconfig') end,
-    },
-    --------------------
     -- NavBuddy
     --------------------
     {
         'SmiteshP/nvim-navbuddy',
         dependencies = {
-            'neovim/nvim-lspconfig',
+            -- 'neovim/nvim-lspconfig',
             'SmiteshP/nvim-navic',
             'MunifTanjim/nui.nvim',
         },

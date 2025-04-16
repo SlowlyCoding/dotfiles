@@ -59,7 +59,6 @@ vim.api.nvim_set_keymap('n', '<leader>cc', ':call v:lua.cycle_colors()<CR>', opt
 vim.api.nvim_set_keymap('n', 'N', ':Navbuddy<CR>', opts);
 
 -- Trouble
--- vim.keymap.set('n', '<leader>t', function() require("trouble").toggle() end);
 vim.keymap.set('n', '<leader>t', "<cmd>Trouble diagnostics toggle filter.buf=0<cr>");
 
 -- Oil

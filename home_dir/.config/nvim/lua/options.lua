@@ -20,12 +20,6 @@ local colorschemes = {
         syntax = true,
         treesitter = "enable",
     },
-    jellybeans = {
-        name = "jellybeans",
-        highlights = {},
-        syntax = true,
-        treesitter = "enable",
-    },
     austere_no_syntax = {
         name = "austere",
         highlights = {},
@@ -44,10 +38,10 @@ local colorschemes = {
 local function apply_colorscheme(scheme)
     vim.cmd("colorscheme " .. scheme.name)
 
-    if scheme.syntax then 
+    if scheme.syntax then
         vim.cmd("syntax on")
-    else 
-        vim.cmd("syntax off") 
+    else
+        vim.cmd("syntax off")
     end
 
     if scheme.treesitter == "enable" then
@@ -65,8 +59,6 @@ end
 -- function to cycle between colorschemes
 function _G.cycle_colors()
     if vim.g.current_color == "gruvbox" then
-        vim.g.current_color = "jellybeans"
-    elseif vim.g.current_color == "jellybeans" then
         vim.g.current_color = "austere_no_syntax"
     elseif vim.g.current_color == "austere_no_syntax" then
         vim.g.current_color = "austere"
@@ -83,8 +75,8 @@ apply_colorscheme(colorschemes[vim.g.current_color])
 ------------------------------
 -- tab settings
 ------------------------------
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
@@ -101,17 +93,41 @@ vim.opt.nu = true
 vim.opt.hls = false
 vim.opt.mouse = ""
 vim.opt.signcolumn = "yes"
+vim.opt.winborder = 'rounded'
+
+------------------------------
+-- lsp settings
+------------------------------
+vim.lsp.config.clangd = {
+  cmd = { 'clangd', '--background-index' },
+  root_markers = { 'compile_commands.json', 'compile_flags.txt' },
+  filetypes = { 'c', 'cpp' },
+}
+vim.lsp.config.luals = {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+}
+vim.lsp.config.pyright = {
+  cmd = { 'pyright-langserver', '--stdio' },
+  filetypes = { 'python' },
+}
+
+vim.lsp.enable({'clangd', 'luals', 'pyright'})
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    vim.diagnostic.enable(false) -- disable diagnostics by default (toggled using tE)
+    vim.diagnostic.config({
+      signs = false, -- get rid of the annoying signs on the left
+      virtual_text = true
+    })
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+    require('nvim-navbuddy').attach(client, args.buf) -- attach navbuddy
+  end,
+})
 
 ------------------------------
 -- function to toggle diagnostics, mapping in mappings/init.lua
 ------------------------------
-vim.g.diagnostics_active = false
 function _G.toggle_diagnostics()
-    if vim.g.diagnostics_active then
-        vim.g.diagnostics_active = false
-        vim.diagnostic.disable()
-    else
-        vim.g.diagnostics_active = true
-        vim.diagnostic.enable()
-    end
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end
