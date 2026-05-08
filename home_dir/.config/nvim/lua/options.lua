@@ -4,73 +4,16 @@
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.o.guifont = "CaskaydiaCove NF:h14"
-vim.g.gruvbox_contrast_dark = "hard"
 
--- set initial colorscheme
-vim.g.current_color = "gruvbox"
+vim.cmd("colorscheme retrobox")
 
--- store colorscheme configs
-local colorschemes = {
-    gruvbox = {
-        name = "retrobox",
-        highlights = {
-            Visual = { bg = "#514f4d" }, -- Less bright visual highlighting
-            Pmenu = { bg = "#161518" }, -- Navbuddy bg color
-        },
-        syntax = true,
-        treesitter = "enable",
-    },
-    austere_no_syntax = {
-        name = "austere",
-        highlights = {},
-        syntax = false,
-        treesitter = "disable",
-    },
-    austere = {
-        name = "austere",
-        highlights = {},
-        syntax = true,
-        treesitter = "enable",
-    }
+local custom_highlights = {
+  Visual = { bg = "#514f4d" },  -- Less bright visual highlighting
+  Pmenu  = { bg = "#161518" },  -- Navbuddy bg color
 }
-
--- function to apply a colorscheme and its config
-local function apply_colorscheme(scheme)
-    vim.cmd("colorscheme " .. scheme.name)
-
-    if scheme.syntax then
-        vim.cmd("syntax on")
-    else
-        vim.cmd("syntax off")
-    end
-
-    if scheme.treesitter == "enable" then
-        vim.cmd("TSEnable highlight")
-    else
-        vim.cmd("TSDisable highlight")
-    end
-
-    -- apply any custom highlights
-    for group, settings in pairs(scheme.highlights) do
-        vim.api.nvim_set_hl(0, group, settings)
-    end
+for group, settings in pairs(custom_highlights) do
+  vim.api.nvim_set_hl(0, group, settings)
 end
-
--- function to cycle between colorschemes
-function _G.cycle_colors()
-    if vim.g.current_color == "gruvbox" then
-        vim.g.current_color = "austere_no_syntax"
-    elseif vim.g.current_color == "austere_no_syntax" then
-        vim.g.current_color = "austere"
-    elseif vim.g.current_color == "austere" then
-        vim.g.current_color = "gruvbox"
-    end
-    apply_colorscheme(colorschemes[vim.g.current_color])
-end
-
--- apply the initial colorscheme when nvim starts
-apply_colorscheme(colorschemes[vim.g.current_color])
-
 
 ------------------------------
 -- tab settings
@@ -94,6 +37,19 @@ vim.opt.hls = false
 vim.opt.mouse = ""
 vim.opt.signcolumn = "yes"
 vim.opt.winborder = 'rounded'
+
+------------------------------
+-- tree-sitter auto-start hook
+------------------------------
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('treesitter-auto-start', { clear = true }),
+  callback = function()
+    -- pcall (protected call) safely attempts to start Treesitter. 
+    -- If you don't have the parser installed for the current language, 
+    -- it gracefully fails and falls back to standard Vim regex highlighting.
+    pcall(vim.treesitter.start)
+  end,
+})
 
 ------------------------------
 -- lsp settings
@@ -121,6 +77,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       virtual_text = true
     })
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+    -- client.server_capabilities.semanticTokensProvider = nil
     require('nvim-navbuddy').attach(client, args.buf) -- attach navbuddy
   end,
 })

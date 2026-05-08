@@ -16,7 +16,6 @@ require("lazy").setup({
     -------------------------
     -- Colorschemes
     -------------------------
-    {'morhetz/gruvbox', lazy = false },
     {'lurst/austere.vim', lazy = false }, -- minimal b&w
     { "wtfox/jellybeans.nvim", lazy = false },
     {'HoNamDuong/hybrid.nvim', lazy = false },
@@ -40,9 +39,8 @@ require("lazy").setup({
     --------------------
     {
         'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
+        branch = "main",
         lazy = false,
-        -- version = '0.9.2',
         config = function() require('plugin_configs.treesitter') end,
     },
 

@@ -20,6 +20,7 @@ vim.api.nvim_set_keymap('n', 'H', '<C-W><C-H>', opts)
 vim.api.nvim_set_keymap('n', '<C-n>', ':tabnew<CR>', opts);
 vim.api.nvim_set_keymap('n', '<C-Left>', ':tabprevious<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-Right>', ':tabnext<CR>', opts)
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', opts)
 
 -- makes brackets more accessible (swiss keyboard)
 -- vim.api.nvim_set_keymap('i', 'ç', '!', opts)
@@ -40,7 +41,7 @@ vim.api.nvim_set_keymap('n', '<C-Right>', ':tabnext<CR>', opts)
 
 -- Telescope mappings
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-vim.api.nvim_set_keymap('n', '<leader>bf', "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+vim.api.nvim_set_keymap('n', '<leader>gf', "<cmd>lua require('telescope.builtin').git_files()<cr>", opts)
 vim.api.nvim_set_keymap('n', '<leader>lg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 
 -- LSP mappings
@@ -63,7 +64,3 @@ vim.keymap.set('n', '<leader>t', "<cmd>Trouble diagnostics toggle filter.buf=0<c
 
 -- Oil
 vim.api.nvim_set_keymap('n', '<leader>o', ':Oil --float<CR>', opts);
-
--- Vimtex
-vim.api.nvim_set_keymap('n', '<C-c>', ':VimtexCompile<CR>', opts);
-vim.api.nvim_set_keymap('n', '<C-s>', ':VimtexStop<CR>', opts);
